@@ -1,0 +1,9 @@
+matplotlib
+numpy==1.21.6
+opencv-python==4.7.0.68
+Pillow==9.4.0
+scipy==1.7.3
+timm==0.6.12
+setuptools==59.5.0
+tensorflow==1.15.0
+tensorboard==1.15.0
