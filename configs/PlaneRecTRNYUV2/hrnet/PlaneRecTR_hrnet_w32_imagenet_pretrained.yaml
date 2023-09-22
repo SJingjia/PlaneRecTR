@@ -1,0 +1,57 @@
+_BASE_: ../PlaneRecTR_R50_bs16_50ep.yaml
+MODEL:
+  BACKBONE:
+    NAME: "HRNetFromPlaneTR"
+  arch: "hrnet_w32"
+  hrnet_w32:
+    STAGE1:
+      NUM_MODULES: 1
+      NUM_BRANCHES: 1
+      BLOCK: BOTTLENECK
+      NUM_BLOCKS:
+        - 4
+      NUM_CHANNELS:
+        - 64
+      FUSE_METHOD: SUM
+    STAGE2:
+      NUM_MODULES: 1
+      NUM_BRANCHES: 2
+      BLOCK: BASIC
+      NUM_BLOCKS:
+        - 4
+        - 4
+      NUM_CHANNELS:
+        - 32
+        - 64
+      FUSE_METHOD: SUM
+    STAGE3:
+      NUM_MODULES: 4
+      NUM_BRANCHES: 3
+      BLOCK: BASIC
+      NUM_BLOCKS:
+        - 4
+        - 4
+        - 4
+      NUM_CHANNELS:
+        - 32
+        - 64
+        - 128
+      FUSE_METHOD: SUM
+    STAGE4:
+      NUM_MODULES: 3
+      NUM_BRANCHES: 4
+      BLOCK: BASIC
+      NUM_BLOCKS:
+        - 4
+        - 4
+        - 4
+        - 4
+      NUM_CHANNELS:
+        - 32
+        - 64
+        - 128
+        - 256
+      FUSE_METHOD: SUM
+  SEM_SEG_HEAD:
+    COMMON_STRIDE: 2
+  WEIGHTS: './checkpoint/hrnetv2_w32_imagenet_pretrained_new.pth'
