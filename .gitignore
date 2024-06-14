@@ -7,3 +7,5 @@ output*
 *.txt
 !requirements.txt
 checkpoint/*
+detectron2
+PlaneRecTR/modeling/pixel_decoder/ops/build
