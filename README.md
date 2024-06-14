@@ -8,6 +8,9 @@ Jingjia Shi, [Shuaifeng Zhi](https://shuaifengzhi.com/), [Kai Xu](https://kevink
 PlaneRecTR consists of three main modules: (1) A pixel-level module to extract dense  pixel-wise image features; (2) A Transformer module to jointly predict 4 plane-related properties from each plane query, including plane  classification probability, plane parameter, mask and depth embedding; (3) A plane-level module to calculate dense plane-level binary  masks/depths, then filter non-plane predictions and produce the final 3D plane recovery.
 
 
+## Updates
+- 2024.6: Upload the [`Inference demo`](#InferenceDemo).
+
 ## Usage Instructions
 ### Installation
 This repository requires Python 3.7 and makes use of several external libraries (e.g., pytorch, detectron2). The script below is an example conda environment setup.
@@ -90,6 +93,16 @@ python train_net.py --eval-only --num-gpus 1 --config-file configs/{PlaneRecTRSc
 ```
 
 
+### <a name="InferenceDemo"></a>Inference demo
+During inference, PLANE_MASK_THRESHOLD in config file can be modified to adjust segmentation for unseen scene. Based on the input, modify the camera K (--fx, --fy, --ox, --oy) and original image size (--original-w, --original-h).
+```bash
+# PlaneRecTR (ResNet-50): 
+python demo/demo.py --config-file configs/PlaneRecTRScanNetV1/PlaneRecTR_R50_demo.yaml --input demo/359_d2_image.png --output demo/test_result/ --fx 517.97 --fy 517.97 --ox 320 --oy 240
+```
+
+
+
+
 ## <a name="CitingPlaneRecTR"></a>Citing PlaneRecTR
 
 If you use PlaneRecTR in your research, please use the following BibTeX entry.
@@ -97,7 +110,7 @@ If you use PlaneRecTR in your research, please use the following BibTeX entry.
 ```BibTeX
 @InProceedings{shi2023planerectr,
   author={Shi, Jingjia and Zhi, Shuaifeng and Xu, Kai},
-  title={PlaneRecTR: Unified Query learning for 3D Plane Recovery from a Single View}, 
+  title={PlaneRecTR: Unified Query Learning for 3D Plane Recovery from a Single View}, 
   booktitle={ICCV},
   year={2023}
 }
