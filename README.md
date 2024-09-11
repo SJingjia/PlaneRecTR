@@ -2,14 +2,21 @@
 
 Jingjia Shi, [Shuaifeng Zhi](https://shuaifengzhi.com/), [Kai Xu](https://kevinkaixu.net/index.html)
 
-[[`arXiv`](https://arxiv.org/abs/2307.13756)] [[`Page`](https://sjingjia.github.io/PlaneRecTR/)] [[`BibTeX`](#CitingPlaneRecTR)]
+[[`arXiv`](https://arxiv.org/abs/2307.13756v2)] [[`Page`](https://sjingjia.github.io/PlaneRecTR/)] [[`BibTeX`](#CitingPlaneRecTR)]
+
+
+## Updates
+- 2024.6: Upload the [`Inference demo`](#InferenceDemo).
+- 2024.7: 🔥🔥🔥 We propose "**PlaneRecTR++** :Unified Query Learning for Joint 3D Planar Reconstruction and Pose Estimation" [[paper](https://arxiv.org/abs/2307.13756)][[code](https://github.com/SJingjia/PlaneRecTR-PP)], an extension version of our ICCV23 PlaneRecTR, which expands from single view plane recovery to **simultaneous multi-view planar reconstruction and camera pose estimation in a purely end-to-end manner**. Extensive numerical and visual comparisons on four public benchmark datasets demonstrate SOTA performance of our proposed PlaneRecTR++.
+
+---
+
 
 ![model-architecture](figs/overview.png)
 PlaneRecTR consists of three main modules: (1) A pixel-level module to extract dense  pixel-wise image features; (2) A Transformer module to jointly predict 4 plane-related properties from each plane query, including plane  classification probability, plane parameter, mask and depth embedding; (3) A plane-level module to calculate dense plane-level binary  masks/depths, then filter non-plane predictions and produce the final 3D plane recovery.
 
 
-## Updates
-- 2024.6: Upload the [`Inference demo`](#InferenceDemo).
+
 
 ## Usage Instructions
 ### Installation
